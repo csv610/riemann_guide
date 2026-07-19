@@ -23,7 +23,7 @@ The project combines historical mathematical theory with modern software enginee
 
 1.  **The Riemann Zeta Function \& Riemann Hypothesis:** Evaluating $\zeta(s)$ on the complex critical line $s = 1/2 + it$ via Dirichlet eta analytic continuation, and locating the first non-trivial zero crossing at $t \approx 14.1347$.
 2.  **Riemann Integration (Riemann Sums):** Approximating definite integrals using Left, Right, and Midpoint Riemann sums, and verifying the quadratic $O(1/n^2)$ error convergence rate of the midpoint method.
-3.  **Prime Counting \& the Logarithmic Integral $\operatorname{Li}(x)$:** Demonstrating the Prime Number Theorem by comparing exact prime counts $\pi(x)$ with Riemann's logarithmic integral approximation.
+3.  **Prime Counting & the Logarithmic Integral $\mathrm{Li}(x)$:** Demonstrating the Prime Number Theorem by comparing exact prime counts $\pi(x)$ with Riemann's logarithmic integral approximation.
 4.  **Riemannian Geometry \& Spherical Geodesics:** Computing shortest paths (great-circle distances) on curved 2D spheres using a spherical Riemannian metric tensor.
 
 ---
