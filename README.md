@@ -1,5 +1,9 @@
 # Computational Analysis of Riemann's Discoveries
 
+<p align="center">
+  <img src="frontpage.png" alt="Riemann Computational Exploration" width="600"/>
+</p>
+
 This repository contains a self-contained, publication-ready mathematical and computational package that explores and verifies several major discoveries of **Bernhard Riemann (1826–1866)**.
 
 The project combines historical mathematical theory with modern software engineering practices, providing a formal academic paper, a student-friendly laboratory guide, and an independent Python verification suite with zero external dependencies.
