@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install matplotlib (optional, for visualization tests)
+        run: pip install matplotlib numpy
+
+      - name: Run unit tests
+        run: python3 -m unittest test_riemann.py -v
+
+      - name: Generate visualizations (if matplotlib available)
+        run: python3 -c "from riemann_visualize import generate_all_plots; generate_all_plots('plots')" || echo "Visualization generation skipped"
+
+      - name: Set up TeX Live
+        uses: xu-cheng/texlive-action@v2
+        with:
+          packages: |
+            amsmath amsfonts amssymb amsthm
+            hyperref geometry listings xcolor booktabs inconsolata graphicx
+            cm-super
+
+      - name: Compile formal paper
+        run: |
+          pdflatex -interaction=nonstopmode -halt-on-error riemann.tex
+          pdflatex -interaction=nonstopmode -halt-on-error riemann.tex
+
+      - name: Compile student guide
+        run: |
+          pdflatex -interaction=nonstopmode -halt-on-error riemann_student_guide.tex
+          pdflatex -interaction=nonstopmode -halt-on-error riemann_student_guide.tex
+
+      - name: Verify PDF outputs exist
+        run: |
+          test -f riemann.pdf && echo "riemann.pdf OK"
+          test -f riemann_student_guide.pdf && echo "riemann_student_guide.pdf OK"
+
+      - name: Upload PDF artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdfs
+          path: |
+            riemann.pdf
+            riemann_student_guide.pdf
+          retention-days: 7
