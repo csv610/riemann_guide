@@ -1,5 +1,3 @@
-# Computational Analysis of Riemann's Discoveries
-
 <p align="center">
   <img src="frontpage.png" alt="Riemann Computational Exploration" width="600"/>
 </p>
